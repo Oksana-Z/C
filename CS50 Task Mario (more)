@@ -1,0 +1,30 @@
+// https://lab.cs50.io/cs50/labs/2018/fall/mario/more/
+#include <cs50.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{ 
+  string h;
+  int height;
+  do {
+    h = get_string("Enter number: 1-8\n");
+    height = atoi(h);
+  } while (height <= 0 || height >= 9);
+
+
+  for (int row = 1; row <= height; row++) {
+      int left_spaces = height - row;
+      for (int space = 0; space < left_spaces; space++) {
+          printf(" ");
+      } 
+      for (int left_cell = 0; left_cell < row; left_cell++) {
+          printf("#");
+      }
+      printf("  ");
+      for (int right_cell = 0; right_cell < row; right_cell++) {
+          printf("#");
+      }
+      printf("\n");
+  }
+}
